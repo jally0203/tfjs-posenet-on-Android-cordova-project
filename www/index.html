@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body>    
+		<div>
+			<canvas id="myCanvas" width="360" height="360" style="position: absolute; top:0; left:0; z-index=0;"></canvas>
+			<canvas id="drawCanvas" width="360" height="360" style="position: absolute; top:0; left:0; z-index=1;"></canvas>
+		</div>
+		
+		<div style="position:absolute; top:360px; left:0;">
+			<video id="myVideo" width="360" height="360" autoplay muted></video>
+		</div>
+		
+		<div>
+			<img id="myPicture" width="360" height="360" style="display:none;">
+        </div>
+		
+		<div>
+			<canvas id="hideCanvas" width="360" height="360" style="display:none;">
+		</div>
+		
+		<div id="information" style="position:absolute; left:20px; top:720px;"></div>
+		
+		<!-- Tensorflow and PoseNet module -->
+        <script src="tf.min.js"></script>
+		<script src="posenet.min.js"></script>
+		
+		<!-- Cordova plug-in module -->
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>		
+    </body>
+</html>
